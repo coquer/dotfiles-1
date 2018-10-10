@@ -1,0 +1,52 @@
+separator_block_width=14
+
+[disk-home]
+label=DISK
+command=/usr/lib/i3blocks/disk /
+interval=30
+color=#859900
+
+[ssid]
+label=SSID
+command=echo "$(iw dev wlp3s0 link | grep SSID | cut -d " " -f 2-)"
+color=#d33682
+interval=5
+
+
+[wireless]
+instance=wlp3s0
+label=IP
+command=/usr/lib/i3blocks/iface
+color=#00FF00
+interval=10
+
+[strength]
+label=SIG
+command=iw dev wlp3s0 link | grep signal | cut -d " " -f 2-
+interval=10
+color=#cb4b16
+
+[battery]
+label=BATT
+command=echo "$(acpi | cut -d " " -f 4) $(acpi | cut -d " " -f 5 | cut -d ":" -f 1,2 | sed 's/00:/0:/g') $(acpi | cut -d " " -f 3 | tr -d "," |sed 's/Charging/Until Full/g' | sed 's/Discharging/Remaining/g')"
+interval=30
+
+[load]
+label=LAVG
+command=uptime | cut -d "," -f 3 | cut -d ":" -f 2 | tr -d " "
+interval=10
+color=#6c71c4
+
+
+[volume]
+label=VOL
+command=pactl list sinks | grep "Volume: front-left" | cut -d "/" -f 2 | tr -d " "
+interval=1
+signal=10
+color=#d70a53
+
+[time]
+label=
+command=date '+%a, %b %d, %Y %l:%M %p'
+interval=5
+color=#50C878
