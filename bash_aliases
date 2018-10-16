@@ -11,3 +11,6 @@ alias spotify='snap run spotify'
 alias 'wifion'='nmcli dev connect wlp3s0'
 alias 'wifioff'='nmcli dev disconnect wlp3s0'
 alias l.='ls -d .* --color=auto'
+alias pow="sudo shutdown now bye"
+alias r=ranger
+alias sudo='sudo'

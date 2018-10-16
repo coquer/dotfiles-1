@@ -23,8 +23,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec backlight_control +5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec backlight_control -5 # decrease screen brightness
 
 #workspace_auto_back_and_forth yes
 
@@ -191,9 +191,10 @@ bindsym $mod+Shift+p exec --no-startup-id ~/.config/polybar/launch.sh
 #window fading, shadow and transparency
 exec --no-startup-id compton -f -D 3 -c -b
 
-
+exec --no-startup-id pulseaudio
 
 #auto lock
 exec --no-startup-id xautolock -time 15 -locker ~/.lock
+exec --no-startup-id nm-applet --sm-disable
 
 

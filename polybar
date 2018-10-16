@@ -27,7 +27,7 @@ col = #00f
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 ;monitor = ${env:MONITOR}
-monitor = ${env:MONITOR:eDP1}
+monitor = ${env:MONITOR:eDP-1}
 width = 100%
 height = 23
 ;offset-x = 1%
@@ -59,7 +59,7 @@ animation-charging-framerate = 750
 modules-left = i3
 modules-center =
 #modules-right = volume wlan eth battery temperature date
-modules-right = wlan weather volume filesystem battery loadavg temperature date
+modules-right = wlan weather volume home filesystem battery loadavg temperature date
 
 tray-position = right
 tray-padding = 0
@@ -122,7 +122,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{u#3355ff +u} DISK: %percentage_used%%%{-u}
+label-mounted = %{u#3355ff +u} DISK / %percentage_used%%%{-u}
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -132,7 +132,7 @@ interval = 25
 
 mount-0 = /home
 
-label-mounted = %{F#0a81f5}~%{F-}: %percentage_used%%
+label-mounted = %{u#3355ff +u} DISK ~ %percentage_used%%%{-u}
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 [module/bspwm]

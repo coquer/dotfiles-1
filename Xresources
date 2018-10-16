@@ -1,3 +1,5 @@
+
+
 ! URxvt*termName:                       string
 ! URxvt*geometry:                       geometry
 ! URxvt*chdir:                          string
@@ -95,7 +97,7 @@ URxvt.background: [70]#000000
 ! URxvt*pointerColor2:                  color
 URxvt*borderColor:                    Black
 ! URxvt*iconFile:                       file
-URxvt*font:                           xft:Consolas:size=12
+URxvt*font:                           xft:Noto Sans Mono:size=12
 ! URxvt*boldFont:                       fontname
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
@@ -130,7 +132,7 @@ URxvt*borderLess:                     false
 ! URxvt*secondaryScroll:                boolean
 ! URxvt*perl-lib:                       string
 ! URxvt*perl-eval:                      perl-eval
-! URxvt*perl-ext-common:                string
+URxvt*perl-ext-common:                resize-font
 ! URxvt*perl-ext:                       string
 ! URxvt*iso14755:                       boolean
 ! URxvt*iso14755_52:                    boolean
