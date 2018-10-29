@@ -29,7 +29,7 @@ col = #00f
 ;monitor = ${env:MONITOR}
 monitor = ${env:MONITOR:eDP-1}
 width = 100%
-height = 23
+height = 26
 ;offset-x = 1%
 ;offset-y = 1%
 ;radius = 6.0
@@ -50,7 +50,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = mono:pixelsize=9;1
+font-0 = Noto Sans Mono:pixelsize=9;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = Material\-Design\-Iconic\-Font:pixelsize=9;1
 animation-charging-framerate = 750
@@ -78,7 +78,7 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 [module/weather]
 type = custom/script
-exec=curl -s wttr.in/halifax?0QT 2>/dev/null | cut -c 16- | head -n 2 | tr '\n' ' ' | xargs
+exec=~/.wttr
 
 
 format-underline = ${xrdb:color4}

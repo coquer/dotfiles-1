@@ -14,7 +14,7 @@ bindsym $mod+w exec chromium
 
 
 #lock screen
-bindsym $mod+l exec ~/.lock.sh
+bindsym $mod+l exec bash -e "$HOME/.lock.sh"
 
 
 # Pulse Audio controls
@@ -189,7 +189,10 @@ bindsym $mod+Shift+p exec --no-startup-id ~/.config/polybar/launch.sh
 
 
 #window fading, shadow and transparency
-exec --no-startup-id compton -f -D 3 -c -b
+exec --no-startup-id compton -f -c -b -i 0.9
+bindsym $mod+t exec compton -f -c -b -i 0.9
+bindsym $mod+o exec killall compton
+
 
 exec --no-startup-id pulseaudio
 
