@@ -6,6 +6,7 @@ set t_Co=256              " enable 256-color mode.
 syntax enable             " enable syntax highlighting (previously syntax on).
 colorscheme desert        " set colorscheme
 set number                " show line numbers
+set relativenumber
 set laststatus=2          " last window always has a statusline
 filetype indent on        " activates indenting for files
 set nohlsearch            " Don't continue to highlight searched phrases.
@@ -20,4 +21,6 @@ set shiftround            " always indent/outdent to the nearest tabstop
 "set expandtab             " use spaces instead of tabs
 "set smarttab              " use tabs at the start of a line, spaces elsewhere
 "set nowrap                " don't wrap text
+autocmd FileType tex map <F5> :w <Enter>:!pdflatex % > /dev/null 2>&1 && pdflatex % > /dev/null 2>&1<Enter><Enter>:!sleep 0.5<Enter><Enter>:redraw!<Enter>
+autocmd FileType tex map <F6> :w <Enter>:!pdflatex % && pdflatex % && evince %:r.pdf & <Enter><Enter>:!sleep 0.5<Enter><Enter>:redraw!<Enter>
 

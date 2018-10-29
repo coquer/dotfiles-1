@@ -14,3 +14,5 @@ alias l.='ls -d .* --color=auto'
 alias pow="sudo shutdown now bye"
 alias r=ranger
 alias sudo='sudo'
+alias throw="rsync -avz ~/school dal:~/"
+alias catch="rsync -avz dal:~/school ~/"

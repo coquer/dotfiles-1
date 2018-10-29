@@ -22,3 +22,6 @@ say() {
 	figlet -t "$*" | lolcat
 }
 
+pt(){ pdflatex .tex && pdflatex .tex && chromium -app=file:///home/nfagan/Documents/csci2100/.pdf; };
+pt(){ pdflatex  && pdflatex  && chromium -app=file:///home/nfagan/Documents/csci2100/.pdf; };
+mcd() { mkdir -p $1 && cd $1; };
