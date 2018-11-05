@@ -12,7 +12,7 @@ install:
 	ln $(LNFLAGS) -s bashrc $(PREFIX)/.bashrc
 	ln $(LNFLAGS) -s vimrc $(PREFIX)/.vimrc
 	ln $(LNFLAGS) -s weather $(PREFIX)/.wttr
-	ln $(LNFLAGS) -s xinitrc$(PREFIX)/.xinitrc
+	ln $(LNFLAGS) -s xinitrc $(PREFIX)/.xinitrc
 	ln $(LNFLAGS) -s Xresources $(PREFIX)/.Xresources
 	mkdir -p $(PREFIX)/.config/i3
 	ln $(LNFLAGS) -s i3-gaps $(PREFIX)/.config/i3/config
