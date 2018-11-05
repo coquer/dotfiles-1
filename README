@@ -1,4 +1,0 @@
-Dotfiles
-This is makes my dotfiles publicly available and offres me version control. Feel free to copy and alter.
-The makefile will add symlinks to these files where needed.
-If there are existing files, they are backed up.
