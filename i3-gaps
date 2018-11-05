@@ -194,7 +194,7 @@ bindsym $mod+t exec compton -f -c -b -i 0.9
 bindsym $mod+o exec killall compton
 
 
-exec --no-startup-id pulseaudio
+exec --no-startup-id pulseaudio --daemonize
 
 #auto lock
 exec --no-startup-id xautolock -time 15 -locker ~/.lock

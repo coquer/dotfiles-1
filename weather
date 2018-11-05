@@ -1,2 +1,2 @@
 #!/bin/bash
-if [ $(curl -s wttr.in/halifax?QT0 | tee /tmp/weather | grep -c -i redirect) -gt 0 ]; then echo Sign In to Network; else cat /tmp/weather | cut -c 16- | xargs; fi
+if [ $(curl -s wttr.in/halifax?mQT0 | tee /tmp/weather | grep -c -i redirect) -gt 0 ]; then echo Sign In to Network; else cat /tmp/weather | cut -c 16- | xargs; fi
