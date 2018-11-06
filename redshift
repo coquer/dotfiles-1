@@ -1,0 +1,11 @@
+[redshift]
+temp-day=6500
+temp-night=4000
+fade=1
+adjustment-method=randr
+location-provider=manual
+
+[manual]
+lon=-63.76
+lat=44.82
+

@@ -6,6 +6,7 @@ I use this to configure these applications:
  - polybar
  - bash
  - vim
+ - redshft
 
 This repo makes my dotfiles publicly available and gives me version control. Feel free to copy and alter.
 The makefile will add symlinks to these files where needed.
