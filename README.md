@@ -1,5 +1,5 @@
 # Dotfiles
-
+## Explanation
 I use this to configure these applications:
  - Xorg
  - i3-gaps
@@ -15,4 +15,8 @@ You can do this with a quick
 make install
 ```
 If there are existing files, they are backed up.
+
+## How It Looks
+
+![Screen shot of desktop](Screen.png?raw=true "Screen Shot")
 
