@@ -1,4 +1,3 @@
-
 cd
 pulseaudio --start 
 xrdb ~/.Xresources
