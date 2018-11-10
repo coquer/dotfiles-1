@@ -25,3 +25,4 @@ say() {
 pt(){ pdflatex .tex && pdflatex .tex && chromium -app=file:///home/nfagan/Documents/csci2100/.pdf; };
 pt(){ pdflatex  && pdflatex  && chromium -app=file:///home/nfagan/Documents/csci2100/.pdf; };
 mcd() { mkdir -p $1 && cd $1; };
+mp(){ pdflatex $1; pdflatex $1; bibtex $1; pdflatex $1; };
