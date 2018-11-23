@@ -177,6 +177,12 @@ bindsym Mod4+m focus floating; mode "moveit"
 
 #auto open on i3 load
 
+
+
+#redshift
+exec --no-startup-id redshift 
+
+
 #background
 exec --no-startup-id ~/.fehbg
 
@@ -194,7 +200,7 @@ bindsym $mod+t exec compton -f -c -b -i 0.9
 bindsym $mod+o exec killall compton
 
 
-exec --no-startup-id pulseaudio --daemonize
+exec --no-startup-id pulseaudio --start
 
 #auto lock
 exec --no-startup-id xautolock -time 15 -locker ~/.lock

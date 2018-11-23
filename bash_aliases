@@ -17,3 +17,5 @@ alias sudo='sudo'
 alias throw="rsync -avz ~/school dal:~/"
 alias catch="rsync -avz dal:~/school ~/"
 alias note="vim $(date +%F).note"
+alias getip="ip -4 address show wlp3s0 up | awk '/.*inet.*/ { print \$2 } ' "
+
