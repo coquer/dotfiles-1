@@ -24,6 +24,9 @@ set shiftround            " always indent/outdent to the nearest tabstop
 nnoremap <leader>= :tabedit 
 nnoremap <leader>[ gT
 nnoremap <leader>] gt
-autocmd FileType tex map <F5> :w <Enter>:!pdflatex % > /dev/null 2>&1; pdflatex % > /dev/null 2>&1; bibtex % > /dev/null 2>&1; pdflatex % > /dev/null 2>&1;<Enter><Enter>:!sleep 0.5<Enter><Enter>:redraw!<Enter>
-autocmd FileType tex map <F6> :w <Enter>:!pdflatex % && pdflatex % && evince %:r.pdf & <Enter><Enter>:!sleep 0.5<Enter><Enter>:redraw!<Enter>
-
+autocmd FileType tex nmap <F5> :w <Enter>:!pdflatex % > /dev/null 2>&1; pdflatex % > /dev/null 2>&1; bibtex % > /dev/null 2>&1; pdflatex % > /dev/null 2>&1;<Enter><Enter>:!sleep 0.5<Enter><Enter>:redraw!<Enter>
+autocmd FileType tex nmap <F6> :w <Enter>:!pdflatex % && pdflatex % && evince %:r.pdf & <Enter><Enter>:!sleep 0.5<Enter><Enter>:redraw!<Enter>
+"autocmd FileType c nnoremap <F5> :w <Enter>:!clear; echo gcc -o %:r % -lm; gcc -o %:r % -lm; <Enter>
+autocmd FileType c nnoremap <F6> :w <Enter>:!clear; echo gcc -o %:r % -lm && gcc -o %:r % -lm && echo ./%:r && ./%:r ; echo exit code $? <Enter>
+autocmd FileType java nnoremap <F6> :w <Enter>:!clear; echo javac % && javac % && echo java %:r && java %:r ; echo exit code $? <Enter>
+nnoremap <leader>q :!clear <Enter>:q <Enter>
