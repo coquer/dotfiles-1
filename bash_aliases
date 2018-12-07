@@ -5,7 +5,7 @@ alias lar="la -R"
 alias l="ls"
 alias home="cd ~"
 alias figlet="figlet -t"
-alias f="fortune -o | cowsay | lolcat"
+alias f="fortune -o | cowsay -n | lolcat -f"
 alias weather='curl wttr.in/halifax'
 alias spotify='snap run spotify'
 alias 'wifion'='nmcli dev connect wlp3s0'
@@ -15,5 +15,5 @@ alias pow="sudo shutdown now bye"
 alias r="ranger"
 alias sudo='sudo'
 alias note="vim $(date +%F).note"
-alias getip="ip -4 address show wlp3s0 up | awk '/.*inet.*/ { print \$2 } ' "
+#alias getip="ip -4 address show wlp3s0 up | awk '/.*inet.*/ { print \$2 } ' "
 
