@@ -1,4 +1,5 @@
-cd
-xrdb ~/.Xresources
+cd &
+xrdb ~/.Xresources &
+pulseaudio --start &
 exec i3
 
