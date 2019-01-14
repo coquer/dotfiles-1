@@ -192,9 +192,6 @@ exec --no-startup-id ~/.config/polybar/launch.sh
 #shortcut to restart it
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/polybar/launch.sh
 
-
-
-
 #window fading, shadow and transparency
 exec --no-startup-id compton -f -c -b -i 0.9
 bindsym $mod+t exec compton -f -c -b -i 0.9
