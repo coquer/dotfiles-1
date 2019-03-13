@@ -1,3 +1,9 @@
+
+alias cp="cp -i"                          # confirm before overwriting something
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+alias np='nano -w PKGBUILD'
+alias more=less
 alias ll="ls -l"
 alias la="ll -A"
 alias lr="ls -R"
@@ -14,10 +20,10 @@ alias l.='ls -d .* --color=auto'
 alias pow="sudo shutdown now bye"
 alias r="ranger"
 alias sudo='sudo'
-alias note='vim $(date +%F).note'
 
 alias bld='backlight_control -10'
 alias blu='backlight_control +10'
 
-#alias getip="ip -4 address show wlp3s0 up | awk '/.*inet.*/ { print \$2 } ' "
+alias t='tmux attach || tmux'
+alias getip="ip -4 address show wlp3s0 up | awk '/.*inet.*/ { print \$2 } ' "
 

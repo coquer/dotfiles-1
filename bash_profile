@@ -1,29 +1,62 @@
-#
-# ~/.bash_profile
-#
+#!/bin/bash
 
-#[[-f ~/.bashrc ]] && . ~/.bashrc
-if [ -f ~/.bashrc ] ; then
-	. ~/.bashrc
-fi
-
-
-#fortune -o | cowsay | lolcat
-
-export PATH=$PATH:~/bin
+export TERM=rxvt-unicode-256color
 export EDITOR=/usr/bin/vim
 
-if [ -f ~/.bash_aliases ] ; then
-	. ~/.bash_aliases
-fi
+tput init
+tput clear
 
+
+if [ -f ~/.bashrc ] ; then
+	. ~/.bashrc;
+fi;
+if [ -f ~/.bash_aliases ] ; then
+	. ~/.bash_aliases ;
+fi;
+if [ -f ~/.bash_prompt ] ; then
+	. ~/.bash_prompt ;
+fi;
+
+
+
+note() {
+	if [ -f $(date +%F).md ]; then
+		vim "$(date +%F)"'.md';
+	else
+		vim -s ~/.notescript "$(date +%F)"'.md';
+	fi;
+};
+
+readme() {
+	pandoc $1 | lynx -stdin ;
+};
 
 say() {
-	figlet -t "$*" | lolcat
-}
+	figlet -t "$*" | lolcat;
+};
 
-pt(){ pdflatex .tex && pdflatex .tex && chromium -app=file:///home/nfagan/Documents/csci2100/.pdf; };
-pt(){ pdflatex  && pdflatex  && chromium -app=file:///home/nfagan/Documents/csci2100/.pdf; };
 mcd() { mkdir -p $1 && cd $1; };
-mp(){ pdflatex $1; pdflatex $1; bibtex $1; pdflatex $1; };
-cvim(){ vim $1 && clear; };
+
+# # ex - archive extractor
+# # usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}

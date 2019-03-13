@@ -1,0 +1,85 @@
+#!/bin/bash
+
+# old prompt
+# root: PS1='\[\033[01;31m\][\h\[\033[01;36m\] \w\[\033[01;31m\]]\$\[\033[00m\] '
+# user: PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \w\[\033[01;32m\]]\$\[\033[00m\] '
+
+
+curr_dir_home(){
+	local tilde="~"
+	echo -e "${PWD/$HOME/$tilde}"
+}
+
+git_line(){
+
+	output=""
+	#line two: |-( git branch . status )
+	if [ -d ".git" ]; then 
+		output="$linecolor"
+		output+=$(echo -ne "\u251C")
+		output+="( $textcolor";
+		output+=$(git_status_char)
+		output+=" $linecolor)$textcolor\\n";
+	fi;
+	echo $output;
+}
+git_status_char(){
+	output="$(git status -s | xargs | cut -c1 | tr -d '\n')";
+	if [ -z "$output" ]; then
+		echo -ne "\u2713";
+	else 
+		echo $output;
+	fi;
+}
+
+color_ps1(){
+
+	linecolor="\[\033[21m$(tput setaf 2)\]";
+	textcolor="\[$(tput setaf 7)$(tput bold)\]";
+	normal="\[\033[0m\]"
+
+	# get needed info
+	batt="\$(acpi|awk -F',|:' '{print \$2 }'|xargs|cut -c1) \$(acpi|awk -F',|:' '{ print \$3 }'|xargs)"
+
+
+	# /( Batt . Date Time . ~/direcory )
+	# \(username [. git ])$ 
+
+	final="$linecolor"
+	final+=$(echo -ne "\u256D")
+	final+="($textcolor $batt $linecolor.$textcolor \
+\$(date '+%b %d %l:%M%p' | xargs) $linecolor.$textcolor \
+\$(curr_dir_home) $linecolor)\n"
+	final+="$linecolor"
+	final+=$(echo -ne "\u2570")
+	final+="($textcolor \$(whoami) $linecolor"
+	final+="\$(if [ -d '.git' ]; then echo \". $textcolor\$(git_status_char)$linecolor \"; fi)"
+	final+=")\$$normal ";
+
+
+
+	export PS1=$final
+
+	
+};
+
+
+safe_term=${TERM//[^[:alnum:]]/?}   # sanitize TERM
+match_lhs=""
+[[ -f ~/.dir_colors   ]] && match_lhs="${match_lhs}$(<~/.dir_colors)"
+[[ -f /etc/DIR_COLORS ]] && match_lhs="${match_lhs}$(</etc/DIR_COLORS)"
+[[ -z ${match_lhs}    ]] \
+	&& type -P dircolors >/dev/null \
+	&& match_lhs=$(dircolors --print-database)
+[[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
+
+if ${use_color} ; then
+	if [[ ${EUID} == 0 ]] ; then
+		color_ps1
+	else
+		color_ps1
+	fi
+else
+	# no color, fall back to basic prompt.
+	PS1='\u@\h \w \$'
+fi

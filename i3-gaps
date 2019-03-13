@@ -1,4 +1,5 @@
 
+
 new_window none
 
 gaps inner 20
@@ -44,7 +45,10 @@ bindsym $mod+Ctrl+Return exec "i3-sensible-terminal -e ssh omnics"
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -b
+bindsym $mod+d exec dmenu_run -p "OPEN: " -l 51 \
+-nb "#25272C" -nf "#F6F9FC" \
+-sb "#006596" -sf "#F6F9FC" \
+-fn "xft:Noto Sans Mono:size=12"
 
 # change focus
 bindsym $mod+Left focus left
@@ -151,14 +155,14 @@ bindsym $mod+r mode "resize"
 #bar {
 #	font pango:FontAwesome 11
 #	colors {
-#			background #222222
+#			background #25272C
 #			statusline #666666
 #			separator #0000aa
 #			focused_workspace  #444444 #3333a5 #000000
-#        		active_workspace   #444466 #888844 #444444
-#      			inactive_workspace #444444 #000000 #aaaaaa
-#        		urgent_workspace   #884444 #000000 #aaaaaa
-#		}
+#      active_workspace   #444466 #888844 #444444
+#			inactive_workspace #444444 #000000 #aaaaaa
+#   		urgent_workspace   #884444 #000000 #aaaaaa
+#	}
 #	status_command i3blocks
 #	position top
 #	mode dock

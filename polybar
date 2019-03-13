@@ -9,24 +9,16 @@
 ;=====================================================
 
 [colors]
-;background = ${xrdb:color0}
-background = #25272C 
+background = ${xrdb:color0}
 background-alt = #25272C
 foreground = ${xrdb:color15}
-;foreground = #dfdfdf
 foreground-alt = #555
 primary = ${xrdb:color3}
-;primary = ${xrdb:color3}
 secondary = ${xrdb:color5}
-;secondary = #e60053
 alert = #bd2c40
 col = #00f
-;fg = ${xrdb:color7}
-;bg = ${xrdb:color2}
 
 [bar/example]
-;monitor = ${env:MONITOR:HDMI-1}
-;monitor = ${env:MONITOR}
 monitor = ${env:MONITOR:eDP-1}
 width = 100%
 height = 26
@@ -59,7 +51,7 @@ animation-charging-framerate = 750
 modules-left = i3
 modules-center =
 #modules-right = volume wlan eth battery temperature date
-modules-right = wlan weather volume home filesystem battery loadavg temperature date
+modules-right = wlan weather volume mem home filesystem battery loadavg temperature date
 
 tray-position = right
 tray-padding = 0
@@ -86,6 +78,16 @@ interval=60
 format-prefix=" "
 format-foreground=${colors.foreground}
 format-background=${colors.background}
+
+[module/mem]
+type = custom/script
+exec = free -h --si | awk '/Mem:/ { print $3 " / " $2 }'
+format-prefix=" MEM "
+format-underline = ${xrdb:color4}
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+interval = 20
+
 
 [module/loadavg]
 type = custom/script
@@ -322,7 +324,7 @@ format-muted-prefix =
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = sound muted
 
-bar-volume-width = 10
+bar-volume-width = 6
 bar-volume-foreground-0 = ${xrdb:color10}
 bar-volume-foreground-1 = ${xrdb:color10}
 bar-volume-foreground-2 = ${xrdb:color10}
@@ -331,7 +333,7 @@ bar-volume-foreground-4 = ${xrdb:color10}
 bar-volume-foreground-5 = ${xrdb:color11}
 bar-volume-foreground-6 = ${xrdb:color1}
 bar-volume-gradient = false
-bar-volume-indicator = |
+bar-volume-indicator = /
 bar-volume-indicator-font = 2
 bar-volume-fill = =
 bar-volume-fill-font = 2
