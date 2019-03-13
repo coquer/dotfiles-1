@@ -10,6 +10,13 @@ curr_dir_home(){
 	echo -e "${PWD/$HOME/$tilde}"
 }
 
+curr_task(){
+	output="$(task next limit:1 2>/dev/null | sed -n 4p | awk '{print $1}')";
+	if [[ ! -z "$output" ]]; then
+		echo -n " $(task _get $output.description) ";
+	fi;
+}
+
 git_line(){
 
 	output=""
@@ -34,8 +41,8 @@ git_status_char(){
 
 color_ps1(){
 
-	linecolor="\[\033[21m$(tput setaf 2)\]";
-	textcolor="\[$(tput setaf 7)$(tput bold)\]";
+	linecolor="\[\033[0m$(tput setaf 2)\]";
+	textcolor="\[$(echo -e "setaf 7\nbold" | tput -S)\]";
 	normal="\[\033[0m\]"
 
 	# get needed info
@@ -54,7 +61,7 @@ color_ps1(){
 	final+=$(echo -ne "\u2570")
 	final+="($textcolor \$(whoami) $linecolor"
 	final+="\$(if [ -d '.git' ]; then echo \". $textcolor\$(git_status_char)$linecolor \"; fi)"
-	final+=")\$$normal ";
+	final+="\$(curr_task))\$$normal ";
 
 
 
