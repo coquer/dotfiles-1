@@ -41,7 +41,7 @@ git_status_char(){
 
 color_ps1(){
 
-	linecolor="\[\033[0m$(tput setaf 2)\]";
+	linecolor="\[\033[1m$(tput setaf 2)\]";
 	textcolor="\[$(echo -e "setaf 7\nbold" | tput -S)\]";
 	normal="\[\033[0m\]"
 
@@ -55,7 +55,7 @@ color_ps1(){
 	final="$linecolor"
 	final+=$(echo -ne "\u256D")
 	final+="($textcolor $batt $linecolor.$textcolor \
-\$(date '+%b %d %l:%M%p' | xargs) $linecolor.$textcolor \
+\$(date '+%a %b %d %l:%M%p' | xargs) $linecolor.$textcolor \
 \$(curr_dir_home) $linecolor)\n"
 	final+="$linecolor"
 	final+=$(echo -ne "\u2570")
