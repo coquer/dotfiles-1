@@ -1,18 +1,20 @@
 
-LNFLAGS = -b -r
+LNFLAGS = -b
 PREFIX = ~
+THIS=~/.dotfiles
 
 install: 
-	ln $(LNFLAGS) -s bash_aliases $(PREFIX)/.bash_aliases
-	ln $(LNFLAGS) -s bash_profile $(PREFIX)/.bash_profile
-	ln $(LNFLAGS) -s bashrc $(PREFIX)/.bashrc
-	ln $(LNFLAGS) -s vimrc $(PREFIX)/.vimrc
-	ln $(LNFLAGS) -s weather $(PREFIX)/.wttr
-	ln $(LNFLAGS) -s xinitrc $(PREFIX)/.xinitrc
-	ln $(LNFLAGS) -s Xresources $(PREFIX)/.Xresources
+	ln $(LNFLAGS) -s $(THIS)/bash_aliases $(PREFIX)/.config/bash/.bash_aliases
+	ln $(LNFLAGS) -s $(THIS)/bash_profile $(PREFIX)/.bash_profile
+	ln $(LNFLAGS) -s $(THIS)/bash_prompt $(PREFIX)/.config/bash/.bash_prompt
+	ln $(LNFLAGS) -s $(THIS)/bashrc $(PREFIX)/.config/bash/.bashrc
+	ln $(LNFLAGS) -s $(THIS)/vimrc $(PREFIX)/.vimrc
+	ln $(LNFLAGS) -s $(THIS)/weather $(PREFIX)/.wttr
+	ln $(LNFLAGS) -s $(THIS)/xinitrc $(PREFIX)/.xinitrc
+	ln $(LNFLAGS) -s $(THIS)/Xresources $(PREFIX)/.Xresources
 	mkdir -p $(PREFIX)/.config/i3
-	ln $(LNFLAGS) -s i3-gaps $(PREFIX)/.config/i3/config
+	ln $(LNFLAGS) -s $(THIS)/i3-gaps $(PREFIX)/.config/i3/config
 	mkdir -p $(PREFIX)/.config/polybar
-	ln $(LNFLAGS) -s polybar $(PREFIX)/.config/polybar/config
-	ln $(LNFLAGS) -s redshift $(PREFIX)/.config/redshift.conf
+	ln $(LNFLAGS) -s $(THIS)/polybar $(PREFIX)/.config/polybar/config
+	ln $(LNFLAGS) -s $(THIS)/redshift $(PREFIX)/.config/redshift.conf
 	

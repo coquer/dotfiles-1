@@ -13,6 +13,9 @@ set $mod Mod4
 #app shortcuts
 bindsym $mod+w exec chromium
 
+## random background
+bindsym $mod+b exec bash -e "$HOME/.fehbg"
+
 
 #lock screen
 bindsym $mod+l exec bash -e "$HOME/.lock.sh"
@@ -125,7 +128,7 @@ bindsym $mod+Shift+r restart
 #bindsym $mod+Shift+e exec i3-msg exit
 
 bindsym $mod+Shift+e exec --no-startup-id `[ $(printf "YES" | dmenu -b \
-    -nb "#aa2222" -sb "#aa2222" -sf "#ffffff" -fn Monospace-11 \
+    -nb "#222222" -sb "#a0a022" -sf "#ffffff" -fn Monospace-11 \
     -nf "#ffffff" -i -p "Exit i3 X session?") = "YES" ] && i3-msg exit`
 
 

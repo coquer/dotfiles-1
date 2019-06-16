@@ -2,40 +2,36 @@
 
 export TERM=rxvt-unicode-256color
 export EDITOR=/usr/bin/vim
+export PAGER=/usr/bin/less
+export PATH=$PATH:/home/nfagan/.cargo/bin
+export HISTSIZE=-1
 
 tput init
 tput clear
 
 
-if [ -f ~/.bashrc ] ; then
-	. ~/.bashrc;
+bcon="$HOME/.config/bash"
+
+
+if [ -f $bcon/.bashrc ] ; then
+	. $bcon/.bashrc;
 fi;
-if [ -f ~/.bash_aliases ] ; then
-	. ~/.bash_aliases ;
+if [ -f $bcon/.bash_aliases ] ; then
+	. $bcon/.bash_aliases ;
 fi;
-if [ -f ~/.bash_prompt ] ; then
-	. ~/.bash_prompt ;
+if [ -f $bcon/.bash_prompt ] ; then
+	. $bcon/.bash_prompt ;
 fi;
+
+vconf="$HOME/.config/vim"
+alias vim="vim -i $vconf/.viminfo -u $vconf/.vimrc"
 
 
 
-note() {
-	if [ -f $(date +%F).md ]; then
-		vim "$(date +%F)"'.md';
-	else
-		vim -s ~/.notescript "$(date +%F)"'.md';
-	fi;
-};
 
 readme() {
 	pandoc $1 | lynx -stdin ;
 };
-
-say() {
-	figlet -t "$*" | lolcat;
-};
-
-mcd() { mkdir -p $1 && cd $1; };
 
 # # ex - archive extractor
 # # usage: ex <file>
@@ -60,3 +56,8 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
+
+
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+	. /usr/share/bash-completion/bash_completion
+fi

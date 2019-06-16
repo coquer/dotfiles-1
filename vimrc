@@ -8,6 +8,8 @@ Plugin 'VundleVum/Vundle.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'rust-lang/rust.vim'
 "Plugin 'itchyny/lightline.vim'
+Plugin 'nicholasfagan/vim-runner'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'takac/vim-hardtime'
 
 call vundle#end()
@@ -21,7 +23,11 @@ let g:list_of_disabled_keys = []
 
 
 filetype plugin indent on
+
+
 let mapleader = ","
+set bs=2
+
 set t_Co=256              " enable 256-color mode.
 syntax enable             " enable syntax highlighting (previously syntax on).
 colorscheme slate " set colorscheme
@@ -50,16 +56,24 @@ nnoremap <leader>] gt
 nnoremap <leader>r :w <Enter>:Crun
 
 "tex doc compiling
-autocmd FileType tex nmap <F5> :w <Enter>:!pdflatex % && sleep 0.5<Enter><Enter>:redraw!<Enter>
+"autocmd FileType tex nmap <F5> :w <Enter>:!pdflatex % && sleep 0.5<Enter><Enter>:redraw!<Enter>
 autocmd FileType tex nmap <F6> :w <Enter>:!pdflatex % && zathura %:r.pdf & <Enter><Enter>:!sleep 0.5<Enter><Enter>:redraw!<Enter>
 autocmd FileType tex imap <leader>S <Esc>o\section{
 autocmd FileType tex imap <leader>sS <Esc>o\subsection{
 autocmd FileType tex imap <leader>ssS <Esc>o\subsubsection{
 
 autocmd FileType tex imap <leader>l <Esc>o\begin{enumerate}<Enter>\item<Esc>m'o\end{enumerate}<Esc>''A
+autocmd FileType tex imap <leader>I <Esc>o\begin{itemize}<Enter>\item<Esc>m'o\end{itemize}<Esc>''A
 autocmd FileType tex imap <leader>i <Esc>o\item
+autocmd FileType tex imap <leader>u \underline{
+"great for discrete notes
+autocmd FileType tex imap <leader>p <Esc>o\subsubsection{Proposition}<Enter><Enter>
+autocmd FileType tex imap <leader>P <Esc>o\subsubsection{Proof}<Enter><Enter>
+autocmd FileType tex imap <leader>r <Esc>o\subsubsection{Remark}<Enter><Enter>
+autocmd FileType tex imap <leader>d <Esc>o\subsubsection{Definition}<Enter><Enter>
+autocmd FileType tex imap <leader>e <Esc>o\subsubsection{Example}<Enter><Enter>
 
-nmap <F7> <Esc>:w<Enter>:!pandoc % -t latex -o %:r.pdf
+"nmap <F7> <Esc>:w<Enter>:!pandoc % -t latex -o %:r.pdf
 
 "nnoremap <leader>q :!clear <Enter>:q <Enter>
 nnoremap <leader>d :r !date +"\%b \%d \%Y - \%r" <Enter>

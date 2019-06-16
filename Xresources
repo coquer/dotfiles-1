@@ -1,35 +1,55 @@
-URxvt*loginShell:                     true
-URxvt*scrollBar:                      false
-URxvt*scrollTtyOutput:                false
-URxvt*scrollTtyKeypress:              true
-!URxvt*transparent:                    true
-!URxvt*shading:                        30
-!URxvt*fading:                         20
-URxvt*cursorBlink:                   true 
-! These colors are from the Archery vim theme
-*color0 : #25272C 
-*color1 : #BA2A2A 
-*color2 : #008542 
-*color3 : #F07D30 
-*color4 : #0088CC 
-*color5 : #8D4888 
-*color6 : #006596 
-*color7 : #53586F 
-*color8 : #354151 
-*color9 : #C95F5F 
-*color10 : #73BA25 
-*color11 : #EAC06E 
-*color12 : #81A3CF 
-*color13 : #B589C2 
-*color14 : #25B8A5 
-*color15 : #F6F9FC 
-*colorUL: #ac80ff
-URxvt.foreground: #F6F9FC
-URxvt.background: #25272C
-URxvt*borderColor:                    #25272C 
-URxvt*font:                          xft:Noto Sans Mono:size=12,xft:DevaVu:size=11
- URxvt*depth:                          32
-URxvt*externalBorder:                 2
-URxvt*internalBorder:                 2
-URxvt*borderLess:                     false
-URxvt*perl-ext-common:                resize-font
+! Base16 Solar Flare
+! Scheme: Chuck Harmston (https://chuck.harmston.ch)
+
+#define base00 #18262f
+#define base01 #222e38
+#define base02 #586875
+#define base03 #667581
+#define base04 #85939e
+#define base05 #a6afb8
+#define base06 #e8e9ed
+#define base07 #f5f7fa
+#define base08 #ef5253
+#define base09 #e66b2b
+#define base0A #e4b51c
+#define base0B #7cc844
+#define base0C #52cbb0
+#define base0D #33b5e1
+#define base0E #a363d5
+#define base0F #d73c9a
+
+*foreground:   base05
+#ifdef background_opacity
+*background:   [background_opacity]base00
+#else
+*background:   base00
+#endif
+*cursorColor:  base05
+
+*color0:       base00
+*color1:       base08
+*color2:       base0B
+*color3:       base0A
+*color4:       base0D
+*color5:       base0E
+*color6:       base0C
+*color7:       base05
+
+*color8:       base03
+*color9:       base08
+*color10:      base0B
+*color11:      base0A
+*color12:      base0D
+*color13:      base0E
+*color14:      base0C
+*color15:      base07
+
+! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+! use 'shell' template to set these if necessary
+*color16:      base09
+*color17:      base0F
+*color18:      base01
+*color19:      base02
+*color20:      base04
+*color21:      base06
+#include ".Xresources~"
